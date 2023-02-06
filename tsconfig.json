@@ -6,10 +6,18 @@
       "dom.iterable",
       "esnext"
     ],
+    "rootDir": "./src",
+    "outDir": "./dist/esm",
+    "importHelpers": true,
+    "declaration": true,
+    "sourceMap": true,
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
@@ -22,5 +30,9 @@
   },
   "include": [
     "src"
-  ]
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ],
 }
