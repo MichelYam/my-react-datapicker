@@ -4,7 +4,7 @@ import Input from './input'
 import PropTypes from 'prop-types'
 // import './stylesheets/datapicker.css'
 
-type props = {
+type Props = {
   dataFormat: string
   selectedDate: string
   setSelectedDate: Dispatch<SetStateAction<string>>
@@ -18,7 +18,7 @@ export interface IParamsCalendarHeader {
   changeMonth: (value: number) => void
   changeYear: (value: number) => void
 }
-const Datapicker = ({ selectedDate, setSelectedDate, customHeader, dataFormat }: props) => {
+const Datapicker: React.FC<Props> = ({ selectedDate, setSelectedDate, customHeader, dataFormat }) => {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <div className='datapicker'>

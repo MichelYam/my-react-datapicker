@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 // import './stylesheets/datapicker.css'
 
-type props = {
+type Props = {
   selectedDate: string
   dataFormat: string
   setSelectedDate: (value: string | ((prevVar: string) => string)) => void
 }
-const Index = ({ selectedDate, dataFormat, setSelectedDate }: props) => {
+const Index: React.FC<Props> = ({ selectedDate, dataFormat, setSelectedDate }) => {
   return (
     <input
       id='data'

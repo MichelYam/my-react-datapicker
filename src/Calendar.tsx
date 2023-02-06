@@ -5,7 +5,7 @@ import Week from './Week'
 import PropTypes from 'prop-types'
 // import './stylesheets/datapicker.css'
 
-type props = {
+type Props = {
   dataFormat: string
   customHeader?(params: IParamsCalendarHeader): ReactNode
   setSelectedDate: Dispatch<SetStateAction<string>>
@@ -26,7 +26,7 @@ export type test = {
   otherMonth: string | number
 }
 
-const Index = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsOpen }: props) => {
+const Index: React.FC<Props> = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsOpen }) => {
   const [currentDateCalendar, setCurrentDateCalendar] = useState<DayProps>([])
   const [currentMonth, setCurrentMonth] = useState<number>(new Date().getMonth())
   const [currentYear, setCurrentYear] = useState<number>(new Date().getFullYear())

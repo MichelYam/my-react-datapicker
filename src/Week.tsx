@@ -3,19 +3,19 @@ import Day from './Day'
 import PropTypes from 'prop-types'
 // import './stylesheets/datapicker.css'
 
-type dayprop = {
+type dayProp = {
   value: string | number
   selected?: boolean
   otherMonth: boolean | string
   year?: string | number
   month?: string | number
 }[]
-type props = {
-  calendarData: dayprop
+type Props = {
+  calendarData: dayProp
   indexWeek: number
   setDaySelected: (value: any) => void
 }
-const Index = ({ calendarData, indexWeek, setDaySelected }: props) => {
+const Index: React.FC<Props> = ({ calendarData, indexWeek, setDaySelected }) => {
   const start = indexWeek * 7
   const weekDays = calendarData.slice(start, start + 7)
   return (

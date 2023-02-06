@@ -8,10 +8,10 @@ type Props = {
   month?: string | number
   selected?: boolean
   otherMonth: boolean | string
-  setDaySelected: ({}) => void
+  setDaySelected: ({ }) => void
 }
 
-const Index = ({ value, selected, otherMonth, setDaySelected, year, month }: Props) => {
+const Index: React.FC<Props> = ({ value, selected, otherMonth, setDaySelected, year, month }) => {
   const handleOnClick = (e: React.MouseEvent<HTMLElement>) => {
     const target = e.currentTarget.dataset.day
     const date = parseInt(target!, 10) < 10 ? '0' + target : target

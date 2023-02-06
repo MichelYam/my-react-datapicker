@@ -1,20 +1,20 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import { IParamsCalendarHeader } from './Datapicker'
 import PropTypes from 'prop-types'
 // import './stylesheets/datapicker.css'
 
-type props = {
+type Props = {
   currentMonth: number | string
   currentYear: number | string
   changeMonth: (value: number) => void
   changeYear: (value: number) => void
   prev: () => void
   next: () => void
-  customHeader?(params: IParamsCalendarHeader): ReactNode
+  customHeader?(params: IParamsCalendarHeader): React.ReactNode
 }
-const Index = ({ currentMonth, currentYear, prev, next, customHeader, changeMonth, changeYear }: props) => {
+const Index: React.FC<Props> = ({ currentMonth, currentYear, prev, next, customHeader, changeMonth, changeYear }) => {
   const month = [
     'Janvier',
     'Février',
