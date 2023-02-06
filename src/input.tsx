@@ -24,5 +24,5 @@ export default Index
 Index.prototype = {
   selectedDate: PropTypes.string,
   setSelectedDate: PropTypes.func,
-  dataFormat: PropTypes.string
+  dataFormat: PropTypes.string,
 }

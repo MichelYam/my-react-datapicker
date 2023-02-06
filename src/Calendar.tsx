@@ -54,28 +54,27 @@ const Index = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsO
   }, [selectedDate])
 
   useEffect(() => {
-    document.addEventListener("click", handleWindowMouseDown);
+    document.addEventListener('click', handleWindowMouseDown)
   }, [])
 
   /**
    * handle the closing of the calendar
-   * @param event detect the mouse click 
-   * 
+   * @param event detect the mouse click
+   *
    */
   const handleWindowMouseDown = (event: MouseEvent): void => {
-    const calendar = document.querySelector(".calendar")
-    const datepicker = document.querySelector(".datapicker-input")
+    const calendar = document.querySelector('.calendar')
+    const datepicker = document.querySelector('.datapicker-input')
 
     if (!(calendar && datepicker)) {
-      return;
+      return
     }
 
-    const eventIsOutside = !calendar.contains(event.target as Node) && calendar !== event.target;
-    const eventIsOnPopoverAnchor = datepicker.contains(event.target as Node) || datepicker === event.target;
-
+    const eventIsOutside = !calendar.contains(event.target as Node) && calendar !== event.target
+    const eventIsOnPopoverAnchor = datepicker.contains(event.target as Node) || datepicker === event.target
 
     if (eventIsOutside && !eventIsOnPopoverAnchor) {
-      setIsOpen(false);
+      setIsOpen(false)
     }
   }
   /**
@@ -226,7 +225,7 @@ const Index = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsO
     }
   }
   return (
-    <div className="datapicker-calendar">
+    <div className='datapicker-calendar'>
       <div className='calendar'>
         <CalendarHeader
           currentMonth={currentMonth}

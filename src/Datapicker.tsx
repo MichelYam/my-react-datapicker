@@ -23,19 +23,17 @@ const Datapicker = ({ selectedDate, setSelectedDate, customHeader, dataFormat }:
   return (
     <div className='datapicker'>
       <div className='datapicker-input' onClick={() => setIsOpen(true)}>
-        <Input
-          selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
-          dataFormat={dataFormat}
-        />
-        {isOpen && <Calendar
-          isOpen={isOpen}
-          setIsOpen={() => setIsOpen(false)}
-          customHeader={customHeader}
-          selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
-          dataFormat={dataFormat}
-        />}
+        <Input selectedDate={selectedDate} setSelectedDate={setSelectedDate} dataFormat={dataFormat} />
+        {isOpen && (
+          <Calendar
+            isOpen={isOpen}
+            setIsOpen={() => setIsOpen(false)}
+            customHeader={customHeader}
+            selectedDate={selectedDate}
+            setSelectedDate={setSelectedDate}
+            dataFormat={dataFormat}
+          />
+        )}
       </div>
     </div>
   )
