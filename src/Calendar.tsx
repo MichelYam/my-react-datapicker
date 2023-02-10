@@ -1,4 +1,4 @@
-import React, { Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react'
+import React, { Dispatch, ReactNode, RefObject, SetStateAction, useEffect, useRef, useState } from 'react'
 import CalendarHeader from './CalendarHeader'
 import { IParamsCalendarHeader } from './Datapicker'
 import Week from './Week'
@@ -12,6 +12,7 @@ type Props = {
   selectedDate: string
   setIsOpen: (value: boolean) => void
   isOpen: boolean
+  datapickerRef: RefObject<HTMLInputElement>
 }
 type DayProps = {
   value: string | number
@@ -26,7 +27,7 @@ export type test = {
   otherMonth: string | number
 }
 
-const Index: React.FC<Props> = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsOpen }) => {
+const Index: React.FC<Props> = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsOpen, datapickerRef }) => {
   const [currentDateCalendar, setCurrentDateCalendar] = useState<DayProps>([])
   const [currentMonth, setCurrentMonth] = useState<number>(new Date().getMonth())
   const [currentYear, setCurrentYear] = useState<number>(new Date().getFullYear())
@@ -39,6 +40,7 @@ const Index: React.FC<Props> = ({ customHeader, setSelectedDate, selectedDate, d
 
   const listOfDay = ['Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa', 'Di']
   const dateRegex = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/
+  let calendarRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     createCalendar(currentMonth, currentYear)
@@ -63,16 +65,8 @@ const Index: React.FC<Props> = ({ customHeader, setSelectedDate, selectedDate, d
    * 
    */
   const handleWindowMouseDown = (event: MouseEvent): void => {
-    const calendar = document.querySelector(".calendar")
-    const datepicker = document.querySelector(".datapicker-input")
-
-    if (!(calendar && datepicker)) {
-      return;
-    }
-
-    const eventIsOutside = !calendar.contains(event.target as Node) && calendar !== event.target;
-    const eventIsOnPopoverAnchor = datepicker.contains(event.target as Node) || datepicker === event.target;
-
+    const eventIsOutside = !calendarRef.current?.contains(event.target as Node) && calendarRef.current !== event.target;
+    const eventIsOnPopoverAnchor = datapickerRef.current?.contains(event.target as Node) || datapickerRef.current === event.target;
 
     if (eventIsOutside && !eventIsOnPopoverAnchor) {
       setIsOpen(false);

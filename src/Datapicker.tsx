@@ -1,4 +1,4 @@
-import React, { Dispatch, ReactNode, SetStateAction, useState } from 'react'
+import React, { Dispatch, ReactNode, SetStateAction, useRef, useState } from 'react'
 import Calendar from './Calendar'
 import Input from './input'
 import PropTypes from 'prop-types'
@@ -20,6 +20,7 @@ export interface IParamsCalendarHeader {
 }
 const Datapicker: React.FC<Props> = ({ selectedDate, setSelectedDate, customHeader, dataFormat }) => {
   const [isOpen, setIsOpen] = useState(false)
+  let datapickerRef = useRef<HTMLInputElement>(null)
   return (
     <div className='datapicker'>
       <div className='datapicker-input' onClick={() => setIsOpen(true)}>
@@ -35,6 +36,7 @@ const Datapicker: React.FC<Props> = ({ selectedDate, setSelectedDate, customHead
           selectedDate={selectedDate}
           setSelectedDate={setSelectedDate}
           dataFormat={dataFormat}
+          datapickerRef={datapickerRef}
         />}
       </div>
     </div>
