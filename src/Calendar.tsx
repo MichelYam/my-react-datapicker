@@ -65,6 +65,9 @@ const Index: React.FC<Props> = ({ customHeader, setSelectedDate, selectedDate, d
    * 
    */
   const handleWindowMouseDown = (event: MouseEvent): void => {
+    if (!(calendarRef.current && datapickerRef.current)) {
+      return;
+    }
     const eventIsOutside = !calendarRef.current?.contains(event.target as Node) && calendarRef.current !== event.target;
     const eventIsOnPopoverAnchor = datapickerRef.current?.contains(event.target as Node) || datapickerRef.current === event.target;
 
@@ -220,7 +223,7 @@ const Index: React.FC<Props> = ({ customHeader, setSelectedDate, selectedDate, d
     }
   }
   return (
-    <div className="datapicker-calendar">
+    <div className="datapicker-calendar" ref={calendarRef}>
       <div className='calendar'>
         <CalendarHeader
           currentMonth={currentMonth}
