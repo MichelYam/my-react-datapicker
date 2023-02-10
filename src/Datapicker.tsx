@@ -28,6 +28,7 @@ const Datapicker: React.FC<Props> = ({ selectedDate, setSelectedDate, customHead
           selectedDate={selectedDate}
           setSelectedDate={setSelectedDate}
           dataFormat={dataFormat}
+          datapickerRef={datapickerRef}
         />
         {isOpen && <Calendar
           isOpen={isOpen}

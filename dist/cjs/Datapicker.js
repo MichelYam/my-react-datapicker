@@ -10,7 +10,7 @@ const Datapicker = ({ selectedDate, setSelectedDate, customHeader, dataFormat })
     let datapickerRef = (0, react_1.useRef)(null);
     return (react_1.default.createElement("div", { className: 'datapicker' },
         react_1.default.createElement("div", { className: 'datapicker-input', onClick: () => setIsOpen(true) },
-            react_1.default.createElement(input_1.default, { selectedDate: selectedDate, setSelectedDate: setSelectedDate, dataFormat: dataFormat }),
+            react_1.default.createElement(input_1.default, { selectedDate: selectedDate, setSelectedDate: setSelectedDate, dataFormat: dataFormat, datapickerRef: datapickerRef }),
             isOpen && react_1.default.createElement(Calendar_1.default, { isOpen: isOpen, setIsOpen: () => setIsOpen(false), customHeader: customHeader, selectedDate: selectedDate, setSelectedDate: setSelectedDate, dataFormat: dataFormat, datapickerRef: datapickerRef }))));
 };
 exports.default = Datapicker;
