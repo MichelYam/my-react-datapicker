@@ -39,6 +39,9 @@ const Index = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsO
      */
     const handleWindowMouseDown = (event) => {
         var _a, _b;
+        if (!(calendarRef.current && datapickerRef.current)) {
+            return;
+        }
         const eventIsOutside = !((_a = calendarRef.current) === null || _a === void 0 ? void 0 : _a.contains(event.target)) && calendarRef.current !== event.target;
         const eventIsOnPopoverAnchor = ((_b = datapickerRef.current) === null || _b === void 0 ? void 0 : _b.contains(event.target)) || datapickerRef.current === event.target;
         if (eventIsOutside && !eventIsOnPopoverAnchor) {
@@ -193,7 +196,7 @@ const Index = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsO
             setCurrentMonth(currentMonth - 1);
         }
     };
-    return (react_1.default.createElement("div", { className: "datapicker-calendar" },
+    return (react_1.default.createElement("div", { className: "datapicker-calendar", ref: calendarRef },
         react_1.default.createElement("div", { className: 'calendar' },
             react_1.default.createElement(CalendarHeader_1.default, { currentMonth: currentMonth, currentYear: currentYear, next: next, prev: prev, customHeader: customHeader, changeYear: setCurrentYear, changeMonth: setCurrentMonth }),
             react_1.default.createElement("div", { className: 'calendar-body' },
