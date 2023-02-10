@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import CalendarHeader from './CalendarHeader';
 import Week from './Week';
 import PropTypes from 'prop-types';
-const Index = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsOpen }) => {
+const Index = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsOpen, datapickerRef }) => {
     const [currentDateCalendar, setCurrentDateCalendar] = useState([]);
     const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -14,6 +14,7 @@ const Index = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsO
     });
     const listOfDay = ['Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa', 'Di'];
     const dateRegex = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
+    let calendarRef = useRef(null);
     useEffect(() => {
         createCalendar(currentMonth, currentYear);
     }, [daySelected, currentMonth, currentYear]);
@@ -34,13 +35,9 @@ const Index = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsO
      *
      */
     const handleWindowMouseDown = (event) => {
-        const calendar = document.querySelector(".calendar");
-        const datepicker = document.querySelector(".datapicker-input");
-        if (!(calendar && datepicker)) {
-            return;
-        }
-        const eventIsOutside = !calendar.contains(event.target) && calendar !== event.target;
-        const eventIsOnPopoverAnchor = datepicker.contains(event.target) || datepicker === event.target;
+        var _a, _b;
+        const eventIsOutside = !((_a = calendarRef.current) === null || _a === void 0 ? void 0 : _a.contains(event.target)) && calendarRef.current !== event.target;
+        const eventIsOnPopoverAnchor = ((_b = datapickerRef.current) === null || _b === void 0 ? void 0 : _b.contains(event.target)) || datapickerRef.current === event.target;
         if (eventIsOutside && !eventIsOnPopoverAnchor) {
             setIsOpen(false);
         }

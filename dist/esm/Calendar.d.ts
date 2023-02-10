@@ -1,4 +1,4 @@
-import React, { Dispatch, ReactNode, SetStateAction } from 'react';
+import React, { Dispatch, ReactNode, RefObject, SetStateAction } from 'react';
 import { IParamsCalendarHeader } from './Datapicker';
 type Props = {
     dataFormat: string;
@@ -7,6 +7,7 @@ type Props = {
     selectedDate: string;
     setIsOpen: (value: boolean) => void;
     isOpen: boolean;
+    datapickerRef: RefObject<HTMLInputElement>;
 };
 export type test = {
     day: string | number;

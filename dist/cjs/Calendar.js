@@ -5,7 +5,7 @@ const react_1 = tslib_1.__importStar(require("react"));
 const CalendarHeader_1 = tslib_1.__importDefault(require("./CalendarHeader"));
 const Week_1 = tslib_1.__importDefault(require("./Week"));
 const prop_types_1 = tslib_1.__importDefault(require("prop-types"));
-const Index = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsOpen }) => {
+const Index = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsOpen, datapickerRef }) => {
     const [currentDateCalendar, setCurrentDateCalendar] = (0, react_1.useState)([]);
     const [currentMonth, setCurrentMonth] = (0, react_1.useState)(new Date().getMonth());
     const [currentYear, setCurrentYear] = (0, react_1.useState)(new Date().getFullYear());
@@ -17,6 +17,7 @@ const Index = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsO
     });
     const listOfDay = ['Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa', 'Di'];
     const dateRegex = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
+    let calendarRef = (0, react_1.useRef)(null);
     (0, react_1.useEffect)(() => {
         createCalendar(currentMonth, currentYear);
     }, [daySelected, currentMonth, currentYear]);
@@ -37,13 +38,9 @@ const Index = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsO
      *
      */
     const handleWindowMouseDown = (event) => {
-        const calendar = document.querySelector(".calendar");
-        const datepicker = document.querySelector(".datapicker-input");
-        if (!(calendar && datepicker)) {
-            return;
-        }
-        const eventIsOutside = !calendar.contains(event.target) && calendar !== event.target;
-        const eventIsOnPopoverAnchor = datepicker.contains(event.target) || datepicker === event.target;
+        var _a, _b;
+        const eventIsOutside = !((_a = calendarRef.current) === null || _a === void 0 ? void 0 : _a.contains(event.target)) && calendarRef.current !== event.target;
+        const eventIsOnPopoverAnchor = ((_b = datapickerRef.current) === null || _b === void 0 ? void 0 : _b.contains(event.target)) || datapickerRef.current === event.target;
         if (eventIsOutside && !eventIsOnPopoverAnchor) {
             setIsOpen(false);
         }
