@@ -36,4 +36,3 @@ Index.prototype = {
     changeMonth: prop_types_1.default.func.isRequired,
     changeYear: prop_types_1.default.func.isRequired,
 };
-//# sourceMappingURL=CalendarHeader.js.map

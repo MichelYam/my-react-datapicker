@@ -211,4 +211,3 @@ Index.prototype = {
     customHeader: prop_types_1.default.func,
     dataFormat: prop_types_1.default.string,
 };
-//# sourceMappingURL=Calendar.js.map

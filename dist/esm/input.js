@@ -9,4 +9,3 @@ Index.prototype = {
     setSelectedDate: PropTypes.func,
     dataFormat: PropTypes.string
 };
-//# sourceMappingURL=input.js.map

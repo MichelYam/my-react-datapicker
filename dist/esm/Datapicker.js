@@ -17,4 +17,3 @@ Datapicker.prototype = {
     customHeader: PropTypes.func,
     dataFormat: PropTypes.string,
 };
-//# sourceMappingURL=Datapicker.js.map

@@ -17,4 +17,3 @@ Index.prototype = {
     indexWeek: prop_types_1.default.string.isRequired,
     setDaySelected: prop_types_1.default.func.isRequired,
 };
-//# sourceMappingURL=Week.js.map

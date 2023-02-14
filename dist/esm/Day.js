@@ -23,4 +23,3 @@ Index.prototype = {
     setDaySelected: PropTypes.func,
     year: PropTypes.string,
 };
-//# sourceMappingURL=Day.js.map

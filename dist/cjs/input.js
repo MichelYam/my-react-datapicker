@@ -12,4 +12,3 @@ Index.prototype = {
     setSelectedDate: prop_types_1.default.func,
     dataFormat: prop_types_1.default.string
 };
-//# sourceMappingURL=input.js.map
