@@ -1,20 +1,15 @@
 .datapicker-calendar {
   position: absolute;
+  padding-top: 10px;
+}
+
+.calendar {
+  position: absolute;
   border: 1px solid gray;
   border-radius: 5px;
-  margin-top: 10px;
   background-color: #ffffff;
   z-index: 1000;
 }
-
-/* .calendar {
-  position: absolute;
-  border: 1px solid gray;
-  padding: 10px 10px;
-  border-radius: 5px;
-  background-color: #ffffff;
-  z-index: 1000;
-} */
 
 .calendar-header {
   display: flex;
@@ -71,14 +66,10 @@
 
 .day, .day-week {
   margin: 3px;
-  padding: 3px;
-  /* width: calc(100% / 7); */
-  width: 18px;
-  height: 18px;
+  width: 1.7rem;
+  line-height: 1.7rem;
+  text-align: center;
   font-size: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .other-month {
