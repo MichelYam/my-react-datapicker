@@ -72,7 +72,9 @@
 .day, .day-week {
   margin: 3px;
   padding: 3px;
-  width: calc(100% / 7);
+  /* width: calc(100% / 7); */
+  width: 18px;
+  height: 18px;
   font-size: 15px;
   display: flex;
   justify-content: center;
