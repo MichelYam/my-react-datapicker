@@ -7,11 +7,12 @@ type Props = {
   dataFormat: string
   setSelectedDate: (value: string | ((prevVar: string) => string)) => void
   datapickerRef: RefObject<HTMLInputElement>
+  inputId?: string
 }
-const Index: React.FC<Props> = ({ selectedDate, dataFormat, setSelectedDate, datapickerRef }) => {
+const Index: React.FC<Props> = ({ selectedDate, dataFormat, setSelectedDate, datapickerRef, inputId }) => {
   return (
     <input
-      id='data'
+      id={inputId}
       type='text'
       ref={datapickerRef}
       placeholder={dataFormat ? dataFormat : 'DD/MM/AAAA'}

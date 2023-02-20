@@ -2,12 +2,12 @@ import React, { useRef, useState } from 'react';
 import Calendar from './Calendar';
 import Input from './input';
 import PropTypes from 'prop-types';
-const Datapicker = ({ selectedDate, setSelectedDate, customHeader, dataFormat }) => {
+const Datapicker = ({ selectedDate, setSelectedDate, customHeader, dataFormat, inputId }) => {
     const [isOpen, setIsOpen] = useState(false);
     let datapickerRef = useRef(null);
     return (React.createElement("div", { className: 'datapicker' },
         React.createElement("div", { className: 'datapicker-input', onClick: () => setIsOpen(true) },
-            React.createElement(Input, { selectedDate: selectedDate, setSelectedDate: setSelectedDate, dataFormat: dataFormat, datapickerRef: datapickerRef }),
+            React.createElement(Input, { inputId: inputId, selectedDate: selectedDate, setSelectedDate: setSelectedDate, dataFormat: dataFormat, datapickerRef: datapickerRef }),
             isOpen && React.createElement(Calendar, { isOpen: isOpen, setIsOpen: () => setIsOpen(false), customHeader: customHeader, selectedDate: selectedDate, setSelectedDate: setSelectedDate, dataFormat: dataFormat, datapickerRef: datapickerRef }))));
 };
 export default Datapicker;

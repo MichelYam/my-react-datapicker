@@ -4,6 +4,7 @@ type Props = {
     selectedDate: string;
     setSelectedDate: Dispatch<SetStateAction<string>>;
     customHeader?(params: IParamsCalendarHeader): ReactNode;
+    inputId?: string;
 };
 export interface IParamsCalendarHeader {
     prev(): void;

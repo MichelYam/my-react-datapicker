@@ -10,6 +10,7 @@
   background-color: #ffffff;
   z-index: 1000;
 }
+
 .calendar-header {
   display: flex;
   justify-content: space-between;
