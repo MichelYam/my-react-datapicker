@@ -1,4 +1,4 @@
-import React, { Dispatch, ReactNode, RefObject, SetStateAction, useEffect, useRef, useState } from 'react'
+import React, { ReactNode, RefObject, useEffect, useRef, useState } from 'react'
 import CalendarHeader from './CalendarHeader'
 import { IParamsCalendarHeader } from './Datapicker'
 import Week from './Week'
@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 type Props = {
   dataFormat: string
   customHeader?(params: IParamsCalendarHeader): ReactNode
-  setSelectedDate: Dispatch<SetStateAction<string>>
+  setSelectedDate: (value: string) => void
   selectedDate: string
   setIsOpen: (value: boolean) => void
   isOpen: boolean

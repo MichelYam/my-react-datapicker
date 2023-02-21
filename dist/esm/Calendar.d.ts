@@ -1,9 +1,9 @@
-import React, { Dispatch, ReactNode, RefObject, SetStateAction } from 'react';
+import React, { ReactNode, RefObject } from 'react';
 import { IParamsCalendarHeader } from './Datapicker';
 type Props = {
     dataFormat: string;
     customHeader?(params: IParamsCalendarHeader): ReactNode;
-    setSelectedDate: Dispatch<SetStateAction<string>>;
+    setSelectedDate: (value: string) => void;
     selectedDate: string;
     setIsOpen: (value: boolean) => void;
     isOpen: boolean;

@@ -1,4 +1,4 @@
-import React, { Dispatch, ReactNode, SetStateAction, useRef, useState } from 'react'
+import React, { ReactNode, useRef, useState } from 'react'
 import Calendar from './Calendar'
 import Input from './input'
 import PropTypes from 'prop-types'
@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 type Props = {
   dataFormat: string
   selectedDate: string
-  setSelectedDate: Dispatch<SetStateAction<string>>
+  setSelectedDate: (value: string) => void
   customHeader?(params: IParamsCalendarHeader): ReactNode
   inputId?: string
 }
