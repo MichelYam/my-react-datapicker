@@ -16,6 +16,12 @@ yarn add my-react-datepicker --save
 
 ## Node usage
 
+- ``selectedDate`` (string): variable controlling the display of the date selected
+- ``onChange`` (function): action triggered when changing date
+- ``customHeader`` (object): custom background of the modal
+- ``format`` (string): customize date format
+- ``inputId`` (string): customize id
+
 Here is a simple example, with report data injected directly as an object:
 
 ```tsx
@@ -24,7 +30,10 @@ import DatePicker from "my-react-datepicker";
 const App = () => {
   const [value, setValue] = useState("")
   return (
-      <Datapicker selectedDate={startDate} setSelectedDate={setStartDate} />
+      <Datapicker
+        selectedDate={startDate}
+        onChange={setStartDate} //when day is clicked
+      />
     )
 }
 ```
@@ -54,7 +63,7 @@ You can customize dataPicker header with you own styles like:
   ]
     const years = range(1990, getYear(new Date()) + 1, 1);
   return (
-       <Datapicker selectedDate={startDate} setSelectedDate={setStartDate}
+       <Datapicker selectedDate={startDate} onChange={setStartDate}
         customHeader={({
           currentMonth,
           currentYear,

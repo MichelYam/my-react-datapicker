@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 type Props = {
   dataFormat: string
   selectedDate: string
-  setSelectedDate: (value: string) => void
+  onChange: (value: string) => void
   customHeader?(params: IParamsCalendarHeader): ReactNode
   inputId?: string
 }
@@ -19,7 +19,7 @@ export interface IParamsCalendarHeader {
   changeMonth: (value: number) => void
   changeYear: (value: number) => void
 }
-const Datapicker: React.FC<Props> = ({ selectedDate, setSelectedDate, customHeader, dataFormat, inputId }) => {
+const Datapicker: React.FC<Props> = ({ selectedDate, onChange, customHeader, dataFormat, inputId }) => {
   const [isOpen, setIsOpen] = useState(false)
   let datapickerRef = useRef<HTMLInputElement>(null)
   return (
@@ -28,7 +28,7 @@ const Datapicker: React.FC<Props> = ({ selectedDate, setSelectedDate, customHead
         <Input
           inputId={inputId}
           selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
+          onChange={onChange}
           dataFormat={dataFormat}
           datapickerRef={datapickerRef}
         />
@@ -37,7 +37,7 @@ const Datapicker: React.FC<Props> = ({ selectedDate, setSelectedDate, customHead
           setIsOpen={() => setIsOpen(false)}
           customHeader={customHeader}
           selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
+          onChange={onChange}
           dataFormat={dataFormat}
           datapickerRef={datapickerRef}
         />}
@@ -50,7 +50,7 @@ export default Datapicker
 
 Datapicker.prototype = {
   selectedDate: PropTypes.string.isRequired,
-  setSelectedDate: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   customHeader: PropTypes.func,
   dataFormat: PropTypes.string,
 }

@@ -8,8 +8,8 @@ import PropTypes from 'prop-types'
 type Props = {
   dataFormat: string
   customHeader?(params: IParamsCalendarHeader): ReactNode
-  setSelectedDate: (value: string) => void
   selectedDate: string
+  onChange: (value: string) => void
   setIsOpen: (value: boolean) => void
   isOpen: boolean
   datapickerRef: RefObject<HTMLInputElement>
@@ -27,7 +27,7 @@ export type test = {
   otherMonth: string | number
 }
 
-const Index: React.FC<Props> = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsOpen, datapickerRef }) => {
+const Index: React.FC<Props> = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, datapickerRef }) => {
   const [currentDateCalendar, setCurrentDateCalendar] = useState<DayProps>([])
   const [currentMonth, setCurrentMonth] = useState<number>(new Date().getMonth())
   const [currentYear, setCurrentYear] = useState<number>(new Date().getFullYear())
@@ -156,8 +156,8 @@ const Index: React.FC<Props> = ({ customHeader, setSelectedDate, selectedDate, d
     const year = newYear
 
     dataFormat === 'MM/DD/YYYY'
-      ? setSelectedDate(`${month}/${daySelected.day}/${year}`)
-      : setSelectedDate(`${daySelected.day}/${month}/${year}`)
+      ? onChange(`${month}/${daySelected.day}/${year}`)
+      : onChange(`${daySelected.day}/${month}/${year}`)
     setIsOpen(false)
   }
 
@@ -256,7 +256,7 @@ const Index: React.FC<Props> = ({ customHeader, setSelectedDate, selectedDate, d
 export default Index
 
 Index.prototype = {
-  setSelectedDate: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   selectedDate: PropTypes.func.isRequired,
   setIsOpen: PropTypes.func.isRequired,
   customHeader: PropTypes.func,

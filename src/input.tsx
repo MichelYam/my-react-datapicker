@@ -5,11 +5,11 @@ import PropTypes from 'prop-types'
 type Props = {
   selectedDate: string
   dataFormat: string
-  setSelectedDate: (value: string) => void
+  onChange: (value: string) => void
   datapickerRef: RefObject<HTMLInputElement>
   inputId?: string
 }
-const Index: React.FC<Props> = ({ selectedDate, dataFormat, setSelectedDate, datapickerRef, inputId }) => {
+const Index: React.FC<Props> = ({ selectedDate, dataFormat, onChange, datapickerRef, inputId }) => {
   return (
     <input
       id={inputId}
@@ -17,7 +17,7 @@ const Index: React.FC<Props> = ({ selectedDate, dataFormat, setSelectedDate, dat
       ref={datapickerRef}
       placeholder={dataFormat ? dataFormat : 'DD/MM/AAAA'}
       value={selectedDate}
-      onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSelectedDate(e.target.value)}
+      onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
     />
   )
 }
@@ -26,6 +26,6 @@ export default Index
 
 Index.prototype = {
   selectedDate: PropTypes.string,
-  setSelectedDate: PropTypes.func,
+  onChange: PropTypes.func,
   dataFormat: PropTypes.string
 }

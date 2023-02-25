@@ -14,6 +14,7 @@ type Props = {
   next: () => void
   customHeader?(params: IParamsCalendarHeader): React.ReactNode
 }
+
 const Index: React.FC<Props> = ({ currentMonth, currentYear, prev, next, customHeader, changeMonth, changeYear }) => {
   const month = [
     'Janvier',
