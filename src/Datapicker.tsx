@@ -12,6 +12,7 @@ type Props = {
   inputId?: string
 }
 export interface IParamsCalendarHeader {
+  
   prev(): void
   next(): void
   currentYear: string | number

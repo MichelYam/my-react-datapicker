@@ -2,7 +2,7 @@ import React, { RefObject } from 'react';
 type Props = {
     selectedDate: string;
     dataFormat: string;
-    setSelectedDate: (value: string) => void;
+    onChange: (value: string) => void;
     datapickerRef: RefObject<HTMLInputElement>;
     inputId?: string;
 };

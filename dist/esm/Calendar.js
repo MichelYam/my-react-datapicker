@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import CalendarHeader from './CalendarHeader';
 import Week from './Week';
 import PropTypes from 'prop-types';
-const Index = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsOpen, datapickerRef }) => {
+const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, datapickerRef }) => {
     const [currentDateCalendar, setCurrentDateCalendar] = useState([]);
     const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -125,8 +125,8 @@ const Index = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsO
         const month = newMonth + 1 < 10 ? '0' + (newMonth + 1) : newMonth + 1;
         const year = newYear;
         dataFormat === 'MM/DD/YYYY'
-            ? setSelectedDate(`${month}/${daySelected.day}/${year}`)
-            : setSelectedDate(`${daySelected.day}/${month}/${year}`);
+            ? onChange(`${month}/${daySelected.day}/${year}`)
+            : onChange(`${daySelected.day}/${month}/${year}`);
         setIsOpen(false);
     };
     /**
@@ -202,7 +202,7 @@ const Index = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsO
 };
 export default Index;
 Index.prototype = {
-    setSelectedDate: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
     selectedDate: PropTypes.func.isRequired,
     setIsOpen: PropTypes.func.isRequired,
     customHeader: PropTypes.func,

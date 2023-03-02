@@ -3,8 +3,8 @@ import { IParamsCalendarHeader } from './Datapicker';
 type Props = {
     dataFormat: string;
     customHeader?(params: IParamsCalendarHeader): ReactNode;
-    setSelectedDate: (value: string) => void;
     selectedDate: string;
+    onChange: (value: string) => void;
     setIsOpen: (value: boolean) => void;
     isOpen: boolean;
     datapickerRef: RefObject<HTMLInputElement>;

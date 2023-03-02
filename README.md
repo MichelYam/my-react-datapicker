@@ -18,6 +18,9 @@ yarn add my-react-datepicker --save
 
 - ``selectedDate`` (string): variable controlling the display of the date selected
 - ``onChange`` (function): action triggered when changing date
+
+### optional
+
 - ``customHeader`` (object): custom background of the modal
 - ``format`` (string): customize date format
 - ``inputId`` (string): customize id

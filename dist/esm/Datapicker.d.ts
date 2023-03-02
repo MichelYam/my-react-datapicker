@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 type Props = {
     dataFormat: string;
     selectedDate: string;
-    setSelectedDate: (value: string) => void;
+    onChange: (value: string) => void;
     customHeader?(params: IParamsCalendarHeader): ReactNode;
     inputId?: string;
 };

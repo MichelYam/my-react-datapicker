@@ -5,7 +5,7 @@ const react_1 = tslib_1.__importStar(require("react"));
 const CalendarHeader_1 = tslib_1.__importDefault(require("./CalendarHeader"));
 const Week_1 = tslib_1.__importDefault(require("./Week"));
 const prop_types_1 = tslib_1.__importDefault(require("prop-types"));
-const Index = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsOpen, datapickerRef }) => {
+const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, datapickerRef }) => {
     const [currentDateCalendar, setCurrentDateCalendar] = (0, react_1.useState)([]);
     const [currentMonth, setCurrentMonth] = (0, react_1.useState)(new Date().getMonth());
     const [currentYear, setCurrentYear] = (0, react_1.useState)(new Date().getFullYear());
@@ -128,8 +128,8 @@ const Index = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsO
         const month = newMonth + 1 < 10 ? '0' + (newMonth + 1) : newMonth + 1;
         const year = newYear;
         dataFormat === 'MM/DD/YYYY'
-            ? setSelectedDate(`${month}/${daySelected.day}/${year}`)
-            : setSelectedDate(`${daySelected.day}/${month}/${year}`);
+            ? onChange(`${month}/${daySelected.day}/${year}`)
+            : onChange(`${daySelected.day}/${month}/${year}`);
         setIsOpen(false);
     };
     /**
@@ -205,7 +205,7 @@ const Index = ({ customHeader, setSelectedDate, selectedDate, dataFormat, setIsO
 };
 exports.default = Index;
 Index.prototype = {
-    setSelectedDate: prop_types_1.default.func.isRequired,
+    onChange: prop_types_1.default.func.isRequired,
     selectedDate: prop_types_1.default.func.isRequired,
     setIsOpen: prop_types_1.default.func.isRequired,
     customHeader: prop_types_1.default.func,
