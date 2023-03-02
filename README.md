@@ -21,7 +21,7 @@ yarn add my-react-datepicker --save
 
 ### optional
 
-- ``customHeader`` (object): custom background of the modal
+- ``customHeader`` (object): custom header of datapicker
 - ``format`` (string): customize date format
 - ``inputId`` (string): customize id
 
@@ -34,7 +34,7 @@ const App = () => {
   const [value, setValue] = useState("")
   return (
       <Datapicker
-        selectedDate={startDate}
+        selectedDate={startDate} 
         onChange={setStartDate} //when day is clicked
       />
     )
