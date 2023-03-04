@@ -4,6 +4,13 @@ const tslib_1 = require("tslib");
 const react_1 = tslib_1.__importDefault(require("react"));
 const Day_1 = tslib_1.__importDefault(require("./Day"));
 const prop_types_1 = tslib_1.__importDefault(require("prop-types"));
+/**
+ *
+ * @param {number} indexWeek id of the week
+ * @param {Array} calendarData number of day
+ * @param {number} setDaySelected function that will update the selected day
+ * @returns {JsxElement} return day of week
+ */
 const Index = ({ calendarData, indexWeek, setDaySelected }) => {
     const start = indexWeek * 7;
     const weekDays = calendarData.slice(start, start + 7);

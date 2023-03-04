@@ -1,4 +1,4 @@
-import React from 'react';
+/// <reference types="react" />
 type dayProp = {
     value: string | number;
     selected?: boolean;
@@ -11,5 +11,12 @@ type Props = {
     indexWeek: number;
     setDaySelected: (value: any) => void;
 };
-declare const Index: React.FC<Props>;
+/**
+ *
+ * @param {number} indexWeek id of the week
+ * @param {Array} calendarData number of day
+ * @param {number} setDaySelected function that will update the selected day
+ * @returns {JsxElement} return day of week
+ */
+declare const Index: ({ calendarData, indexWeek, setDaySelected }: Props) => JSX.Element;
 export default Index;

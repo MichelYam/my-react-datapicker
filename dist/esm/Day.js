@@ -1,5 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+/**
+ *
+ * @param {number} value id of the week
+ * @param {boolean} selected check is the day is selected
+ * @param {string} otherMonth check if is previous or next month
+ * @param {string} month current month
+ * @param {string} year current year
+ * @param {function} setDaySelected set day selected
+ * @returns {JsxElement} return day
+ */
 const Index = ({ value, selected, otherMonth, setDaySelected, year, month }) => {
     const handleOnClick = (e) => {
         const target = e.currentTarget.dataset.day;

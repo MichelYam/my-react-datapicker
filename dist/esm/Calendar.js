@@ -2,6 +2,16 @@ import React, { useEffect, useRef, useState } from 'react';
 import CalendarHeader from './CalendarHeader';
 import Week from './Week';
 import PropTypes from 'prop-types';
+/**
+ *
+ * @param {ReactNode} customHeader customize the header of calendar
+ * @param {void} onChange update the date
+ * @param {string} selectedDate date selected
+ * @param {string} dataFormat format of the date
+ * @param {void} setIsOpen update the calendar view
+ * @param {RefObject<HTMLInputElement>} datapickerRef
+ * @returns JSX Element return calendar
+ */
 const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, datapickerRef }) => {
     const [currentDateCalendar, setCurrentDateCalendar] = useState([]);
     const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());

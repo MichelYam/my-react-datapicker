@@ -5,6 +5,17 @@ const react_1 = tslib_1.__importDefault(require("react"));
 const KeyboardArrowDown_1 = tslib_1.__importDefault(require("@mui/icons-material/KeyboardArrowDown"));
 const KeyboardArrowUp_1 = tslib_1.__importDefault(require("@mui/icons-material/KeyboardArrowUp"));
 const prop_types_1 = tslib_1.__importDefault(require("prop-types"));
+/**
+ *
+ * @param {number | string} currentMonth the current month
+ * @param {number | string} currentYear the current year
+ * @param {void} changeMonth update month
+ * @param {void} changeYear update year
+ * @param {void} prev update display calendar
+ * @param {void} next update display calendar
+ * @param {ReactNode} customHeader customize your calendar header
+ * @returns JSX Element return the header of calendar
+ */
 const Index = ({ currentMonth, currentYear, prev, next, customHeader, changeMonth, changeYear }) => {
     const month = [
         'Janvier',

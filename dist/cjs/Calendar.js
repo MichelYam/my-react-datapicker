@@ -5,6 +5,16 @@ const react_1 = tslib_1.__importStar(require("react"));
 const CalendarHeader_1 = tslib_1.__importDefault(require("./CalendarHeader"));
 const Week_1 = tslib_1.__importDefault(require("./Week"));
 const prop_types_1 = tslib_1.__importDefault(require("prop-types"));
+/**
+ *
+ * @param {ReactNode} customHeader customize the header of calendar
+ * @param {void} onChange update the date
+ * @param {string} selectedDate date selected
+ * @param {string} dataFormat format of the date
+ * @param {void} setIsOpen update the calendar view
+ * @param {RefObject<HTMLInputElement>} datapickerRef
+ * @returns JSX Element return calendar
+ */
 const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, datapickerRef }) => {
     const [currentDateCalendar, setCurrentDateCalendar] = (0, react_1.useState)([]);
     const [currentMonth, setCurrentMonth] = (0, react_1.useState)(new Date().getMonth());

@@ -1,4 +1,4 @@
-import React, { RefObject } from 'react';
+import { RefObject } from 'react';
 type Props = {
     selectedDate: string;
     dataFormat: string;
@@ -6,5 +6,14 @@ type Props = {
     datapickerRef: RefObject<HTMLInputElement>;
     inputId?: string;
 };
-declare const Index: React.FC<Props>;
+/**
+ *
+ * @param {string} selectedDate the day selected
+ * @param {string} dataFormat format of the date
+ * @param {function} onChange function will update the day
+ * @param {RefObject<HTMLInputElement>} datapickerRef
+ * @param {string} inputId ID of input
+ * @returns JSX Element
+ */
+declare const Index: ({ selectedDate, dataFormat, onChange, datapickerRef, inputId }: Props) => JSX.Element;
 export default Index;

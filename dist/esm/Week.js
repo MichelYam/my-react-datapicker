@@ -1,6 +1,13 @@
 import React from 'react';
 import Day from './Day';
 import PropTypes from 'prop-types';
+/**
+ *
+ * @param {number} indexWeek id of the week
+ * @param {Array} calendarData number of day
+ * @param {number} setDaySelected function that will update the selected day
+ * @returns {JsxElement} return day of week
+ */
 const Index = ({ calendarData, indexWeek, setDaySelected }) => {
     const start = indexWeek * 7;
     const weekDays = calendarData.slice(start, start + 7);

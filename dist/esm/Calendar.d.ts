@@ -1,4 +1,4 @@
-import React, { ReactNode, RefObject } from 'react';
+import { ReactNode, RefObject } from 'react';
 import { IParamsCalendarHeader } from './Datapicker';
 type Props = {
     dataFormat: string;
@@ -6,7 +6,6 @@ type Props = {
     selectedDate: string;
     onChange: (value: string) => void;
     setIsOpen: (value: boolean) => void;
-    isOpen: boolean;
     datapickerRef: RefObject<HTMLInputElement>;
 };
 export type test = {
@@ -15,5 +14,15 @@ export type test = {
     year: string | number;
     otherMonth: string | number;
 };
-declare const Index: React.FC<Props>;
+/**
+ *
+ * @param {ReactNode} customHeader customize the header of calendar
+ * @param {void} onChange update the date
+ * @param {string} selectedDate date selected
+ * @param {string} dataFormat format of the date
+ * @param {void} setIsOpen update the calendar view
+ * @param {RefObject<HTMLInputElement>} datapickerRef
+ * @returns JSX Element return calendar
+ */
+declare const Index: ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, datapickerRef }: Props) => JSX.Element;
 export default Index;
