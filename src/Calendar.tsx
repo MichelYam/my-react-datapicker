@@ -11,7 +11,6 @@ type Props = {
   selectedDate: string
   onChange: (value: string) => void
   setIsOpen: (value: boolean) => void
-  isOpen: boolean
   datapickerRef: RefObject<HTMLInputElement>
 }
 type DayProps = {
@@ -26,8 +25,17 @@ export type test = {
   year: string | number
   otherMonth: string | number
 }
-
-const Index: React.FC<Props> = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, datapickerRef }) => {
+/**
+ * 
+ * @param {ReactNode} customHeader customize the header of calendar
+ * @param {void} onChange update the date
+ * @param {string} selectedDate date selected
+ * @param {string} dataFormat format of the date
+ * @param {void} setIsOpen update the calendar view
+ * @param {RefObject<HTMLInputElement>} datapickerRef
+ * @returns JSX Element return calendar
+ */
+const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, datapickerRef }: Props) => {
   const [currentDateCalendar, setCurrentDateCalendar] = useState<DayProps>([])
   const [currentMonth, setCurrentMonth] = useState<number>(new Date().getMonth())
   const [currentYear, setCurrentYear] = useState<number>(new Date().getFullYear())

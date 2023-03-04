@@ -11,7 +11,18 @@ type Props = {
   setDaySelected: ({ }) => void
 }
 
-const Index: React.FC<Props> = ({ value, selected, otherMonth, setDaySelected, year, month }) => {
+/**
+ * 
+ * @param {number} value id of the week
+ * @param {boolean} selected check is the day is selected
+ * @param {string} otherMonth check if is previous or next month
+ * @param {string} month current month
+ * @param {string} year current year
+ * @param {function} setDaySelected set day selected
+ * @returns {JsxElement} return day
+ */
+const Index = ({ value, selected, otherMonth, setDaySelected, year, month }: Props) => {
+  
   const handleOnClick = (e: React.MouseEvent<HTMLElement>) => {
     const target = e.currentTarget.dataset.day
     const date = parseInt(target!, 10) < 10 ? '0' + target : target

@@ -1,6 +1,7 @@
 import React from 'react'
 import Day from './Day'
 import PropTypes from 'prop-types'
+
 // import './stylesheets/datapicker.css'
 
 type dayProp = {
@@ -15,7 +16,16 @@ type Props = {
   indexWeek: number
   setDaySelected: (value: any) => void
 }
-const Index: React.FC<Props> = ({ calendarData, indexWeek, setDaySelected }) => {
+
+/**
+ * 
+ * @param {number} indexWeek id of the week
+ * @param {Array} calendarData number of day
+ * @param {number} setDaySelected function that will update the selected day
+ * @returns {JsxElement} return day of week
+ */
+
+const Index = ({ calendarData, indexWeek, setDaySelected }: Props) => {
   const start = indexWeek * 7
   const weekDays = calendarData.slice(start, start + 7)
   return (

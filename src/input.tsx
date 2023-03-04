@@ -9,7 +9,16 @@ type Props = {
   datapickerRef: RefObject<HTMLInputElement>
   inputId?: string
 }
-const Index: React.FC<Props> = ({ selectedDate, dataFormat, onChange, datapickerRef, inputId }) => {
+/**
+ * 
+ * @param {string} selectedDate the day selected
+ * @param {string} dataFormat format of the date
+ * @param {function} onChange function will update the day 
+ * @param {RefObject<HTMLInputElement>} datapickerRef 
+ * @param {string} inputId ID of input
+ * @returns JSX Element
+ */
+const Index = ({ selectedDate, dataFormat, onChange, datapickerRef, inputId }: Props) => {
   return (
     <input
       id={inputId}
