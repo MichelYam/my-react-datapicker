@@ -13,7 +13,7 @@ import PropTypes from 'prop-types';
  * @param {ReactNode} customHeader customize your calendar header
  * @returns JSX Element return the header of calendar
  */
-const Index = ({ currentMonth, currentYear, prev, next, customHeader, changeMonth, changeYear }) => {
+const Index = ({ currentMonth, currentYear, prev, next, customHeader, changeMonth, changeYear, monthsList, yearList }) => {
     const month = [
         'Janvier',
         'Février',
@@ -28,11 +28,16 @@ const Index = ({ currentMonth, currentYear, prev, next, customHeader, changeMont
         'Novembre',
         'Décembre',
     ];
-    return (React.createElement("div", { className: 'calendar-header' }, customHeader ? (customHeader({ prev, next, currentMonth, currentYear, changeMonth, changeYear })) : (React.createElement(React.Fragment, null,
-        React.createElement("div", null, `${month[currentMonth]} ${currentYear}`),
-        React.createElement("div", { className: 'calender-direction' },
-            React.createElement(KeyboardArrowUpIcon, { onClick: prev }),
-            React.createElement(KeyboardArrowDownIcon, { onClick: next }))))));
+    return (React.createElement("div", { className: 'calendar-header' }, monthsList && yearList ? React.createElement("div", null,
+        React.createElement("button", { onClick: prev }, "<"),
+        React.createElement("select", { value: monthsList[currentMonth], onChange: ({ target: { value } }) => changeMonth(monthsList.indexOf(value)) }, monthsList.map((option) => (React.createElement("option", { key: option, value: option }, option)))),
+        React.createElement("select", { value: currentYear, onChange: ({ target: { value } }) => changeYear(value) }, yearList.map((option) => (React.createElement("option", { key: option, value: option }, option)))),
+        React.createElement("button", { onClick: next }, ">")) :
+        customHeader ? (customHeader({ prev, next, currentMonth, currentYear, changeMonth, changeYear })) : (React.createElement(React.Fragment, null,
+            React.createElement("div", null, `${month[currentMonth]} ${currentYear}`),
+            React.createElement("div", { className: 'calender-direction' },
+                React.createElement(KeyboardArrowUpIcon, { onClick: prev }),
+                React.createElement(KeyboardArrowDownIcon, { onClick: next }))))));
 };
 export default Index;
 Index.prototype = {

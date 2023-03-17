@@ -12,13 +12,13 @@ import PropTypes from 'prop-types';
  * @param {string} datapicker.customHeader customize your calendar header
  * @return {JSX Element} return the input and calendar
  */
-const Datapicker = ({ selectedDate, onChange, customHeader, dataFormat, inputId }) => {
+const Datapicker = ({ selectedDate, onChange, customHeader, dataFormat, inputId, monthsList, yearList }) => {
     const [isOpen, setIsOpen] = useState(false);
     let datapickerRef = useRef(null);
     return (React.createElement("div", { className: 'datapicker' },
         React.createElement("div", { className: 'datapicker-input', onClick: () => setIsOpen(true) },
             React.createElement(Input, { inputId: inputId, selectedDate: selectedDate, onChange: onChange, dataFormat: dataFormat, datapickerRef: datapickerRef }),
-            isOpen && React.createElement(Calendar, { setIsOpen: () => setIsOpen(false), customHeader: customHeader, selectedDate: selectedDate, onChange: onChange, dataFormat: dataFormat, datapickerRef: datapickerRef }))));
+            isOpen && React.createElement(Calendar, { setIsOpen: () => setIsOpen(false), customHeader: customHeader, selectedDate: selectedDate, onChange: onChange, dataFormat: dataFormat, datapickerRef: datapickerRef, monthsList: monthsList, yearList: yearList }))));
 };
 export default Datapicker;
 Datapicker.prototype = {

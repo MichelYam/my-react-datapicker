@@ -7,6 +7,8 @@ type Props = {
     onChange: (value: string) => void;
     setIsOpen: (value: boolean) => void;
     datapickerRef: RefObject<HTMLInputElement>;
+    monthsList?: string[];
+    yearList?: string[];
 };
 export type test = {
     day: string | number;
@@ -24,5 +26,5 @@ export type test = {
  * @param {RefObject<HTMLInputElement>} datapickerRef
  * @returns JSX Element return calendar
  */
-declare const Index: ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, datapickerRef }: Props) => JSX.Element;
+declare const Index: ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, datapickerRef, monthsList, yearList }: Props) => JSX.Element;
 export default Index;

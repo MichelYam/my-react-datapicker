@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
  * @param {RefObject<HTMLInputElement>} datapickerRef
  * @returns JSX Element return calendar
  */
-const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, datapickerRef }) => {
+const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, datapickerRef, monthsList, yearList }) => {
     const [currentDateCalendar, setCurrentDateCalendar] = useState([]);
     const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -205,7 +205,7 @@ const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, da
     };
     return (React.createElement("div", { className: "datapicker-calendar", ref: calendarRef },
         React.createElement("div", { className: 'calendar' },
-            React.createElement(CalendarHeader, { currentMonth: currentMonth, currentYear: currentYear, next: next, prev: prev, customHeader: customHeader, changeYear: setCurrentYear, changeMonth: setCurrentMonth }),
+            React.createElement(CalendarHeader, { currentMonth: currentMonth, currentYear: currentYear, next: next, prev: prev, customHeader: customHeader, changeYear: setCurrentYear, changeMonth: setCurrentMonth, monthsList: monthsList, yearList: yearList }),
             React.createElement("div", { className: 'calendar-body' },
                 React.createElement("div", { className: 'calendar-day' }, listOfDay.map((day, index) => (React.createElement("span", { className: 'day-week', key: index }, day)))),
                 React.createElement("div", { id: 'calendar-container', className: 'calendar-container' }, [...Array(6)].map((_value, index) => (React.createElement(Week, { key: index, calendarData: currentDateCalendar, indexWeek: index, setDaySelected: setDaySelected }))))))));

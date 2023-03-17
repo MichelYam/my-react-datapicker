@@ -15,7 +15,7 @@ const prop_types_1 = tslib_1.__importDefault(require("prop-types"));
  * @param {RefObject<HTMLInputElement>} datapickerRef
  * @returns JSX Element return calendar
  */
-const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, datapickerRef }) => {
+const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, datapickerRef, monthsList, yearList }) => {
     const [currentDateCalendar, setCurrentDateCalendar] = (0, react_1.useState)([]);
     const [currentMonth, setCurrentMonth] = (0, react_1.useState)(new Date().getMonth());
     const [currentYear, setCurrentYear] = (0, react_1.useState)(new Date().getFullYear());
@@ -208,7 +208,7 @@ const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, da
     };
     return (react_1.default.createElement("div", { className: "datapicker-calendar", ref: calendarRef },
         react_1.default.createElement("div", { className: 'calendar' },
-            react_1.default.createElement(CalendarHeader_1.default, { currentMonth: currentMonth, currentYear: currentYear, next: next, prev: prev, customHeader: customHeader, changeYear: setCurrentYear, changeMonth: setCurrentMonth }),
+            react_1.default.createElement(CalendarHeader_1.default, { currentMonth: currentMonth, currentYear: currentYear, next: next, prev: prev, customHeader: customHeader, changeYear: setCurrentYear, changeMonth: setCurrentMonth, monthsList: monthsList, yearList: yearList }),
             react_1.default.createElement("div", { className: 'calendar-body' },
                 react_1.default.createElement("div", { className: 'calendar-day' }, listOfDay.map((day, index) => (react_1.default.createElement("span", { className: 'day-week', key: index }, day)))),
                 react_1.default.createElement("div", { id: 'calendar-container', className: 'calendar-container' }, [...Array(6)].map((_value, index) => (react_1.default.createElement(Week_1.default, { key: index, calendarData: currentDateCalendar, indexWeek: index, setDaySelected: setDaySelected }))))))));
