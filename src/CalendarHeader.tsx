@@ -13,8 +13,8 @@ type Props = {
   prev: () => void
   next: () => void
   customHeader?(params: IParamsCalendarHeader): React.ReactNode
-  monthsList?: string[]
-  yearList?: string[]
+  monthsList?: (string | number)[]
+  yearList?: (string | number)[]
 }
 /**
  * 

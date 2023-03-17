@@ -12,8 +12,8 @@ type Props = {
   onChange: (value: string) => void
   setIsOpen: (value: boolean) => void
   datapickerRef: RefObject<HTMLInputElement>
-  monthsList?: string[]
-  yearList?: string[]
+  monthsList?: (string | number)[]
+  yearList?: (string | number)[]
 }
 type DayProps = {
   value: string | number

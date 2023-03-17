@@ -23,9 +23,17 @@ function App() {
   const years = range(1990, getYear(new Date()) + 10);
   const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
 
+  const handleState = (date: string) => {
+    setStartDate(date)
+  }
+  const handleStatete = (date: string) => {
+    setStartDate(date)
+  }
   return (
     <div className="App">
-      <Datapicker dataFormat='DD/MM/YYYY' selectedDate={startDate} setSelectedDate={setStartDate}
+      <Datapicker dataFormat='DD/MM/YYYY' selectedDate={startDate} onChange={(startDate: any) => setStartDate(startDate)}
+      />
+      {/* <Datapicker dataFormat='DD/MM/YYYY' selectedDate={start} onChange={(start: any) => handleStatete(start)}
         customHeader={({
           currentMonth,
           currentYear,
@@ -65,48 +73,7 @@ function App() {
             </button>
           </div>
         )}
-      />
-      <Datapicker dataFormat='DD/MM/YYYY' selectedDate={start} setSelectedDate={setStart}
-        customHeader={({
-          currentMonth,
-          currentYear,
-          changeMonth,
-          changeYear,
-          prev,
-          next,
-        }) => (
-          <div>
-            <button onClick={prev}>
-              {"<"}
-            </button>
-            <select
-              value={months[currentMonth as unknown as number]}
-              onChange={({ target: { value } }) =>
-                changeMonth(months.indexOf(value))
-              }
-            >
-              {months.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-            <select
-              value={currentYear}
-              onChange={({ target: { value } }: any) => changeYear(value)}
-            >
-              {years.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-            <button onClick={next} >
-              {">"}
-            </button>
-          </div>
-        )}
-      />
+      /> */}
     </div>
   );
 }

@@ -11,8 +11,8 @@ type Props = {
   onChange: (value: string) => void
   customHeader?(params: IParamsCalendarHeader): ReactNode
   inputId?: string
-  monthsList?: string[]
-  yearList?: string[]
+  monthsList?: (string | number)[]
+  yearList?: (string | number)[]
 }
 export interface IParamsCalendarHeader {
   prev(): void
