@@ -6,7 +6,7 @@ type Props = {
     customHeader?(params: IParamsCalendarHeader): ReactNode;
     inputId?: string;
     monthsList?: (string | number)[];
-    yearList?: (string | number)[];
+    yearsList?: (string | number)[];
 };
 export interface IParamsCalendarHeader {
     prev(): void;
@@ -26,5 +26,5 @@ export interface IParamsCalendarHeader {
  * @param {string} datapicker.customHeader customize your calendar header
  * @return {JSX Element} return the input and calendar
  */
-declare const Datapicker: ({ selectedDate, onChange, customHeader, dataFormat, inputId, monthsList, yearList }: Props) => JSX.Element;
+declare const Datapicker: ({ selectedDate, onChange, customHeader, dataFormat, inputId, monthsList, yearsList }: Props) => JSX.Element;
 export default Datapicker;

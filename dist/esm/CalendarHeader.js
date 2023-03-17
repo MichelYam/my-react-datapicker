@@ -13,7 +13,7 @@ import PropTypes from 'prop-types';
  * @param {ReactNode} customHeader customize your calendar header
  * @returns JSX Element return the header of calendar
  */
-const Index = ({ currentMonth, currentYear, prev, next, customHeader, changeMonth, changeYear, monthsList, yearList }) => {
+const Index = ({ currentMonth, currentYear, prev, next, customHeader, changeMonth, changeYear, monthsList, yearsList }) => {
     const month = [
         'Janvier',
         'Février',
@@ -28,10 +28,10 @@ const Index = ({ currentMonth, currentYear, prev, next, customHeader, changeMont
         'Novembre',
         'Décembre',
     ];
-    return (React.createElement("div", { className: 'calendar-header' }, monthsList && yearList ? React.createElement("div", null,
+    return (React.createElement("div", { className: 'calendar-header' }, monthsList && yearsList ? React.createElement("div", null,
         React.createElement("button", { onClick: prev }, "<"),
         React.createElement("select", { value: monthsList[currentMonth], onChange: ({ target: { value } }) => changeMonth(monthsList.indexOf(value)) }, monthsList.map((option) => (React.createElement("option", { key: option, value: option }, option)))),
-        React.createElement("select", { value: currentYear, onChange: ({ target: { value } }) => changeYear(value) }, yearList.map((option) => (React.createElement("option", { key: option, value: option }, option)))),
+        React.createElement("select", { value: currentYear, onChange: ({ target: { value } }) => changeYear(value) }, yearsList.map((option) => (React.createElement("option", { key: option, value: option }, option)))),
         React.createElement("button", { onClick: next }, ">")) :
         customHeader ? (customHeader({ prev, next, currentMonth, currentYear, changeMonth, changeYear })) : (React.createElement(React.Fragment, null,
             React.createElement("div", null, `${month[currentMonth]} ${currentYear}`),
@@ -48,4 +48,6 @@ Index.prototype = {
     customHeader: PropTypes.func.isRequired,
     changeMonth: PropTypes.func.isRequired,
     changeYear: PropTypes.func.isRequired,
+    monthsList: PropTypes.array,
+    yearList: PropTypes.array,
 };

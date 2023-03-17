@@ -9,7 +9,7 @@ type Props = {
     next: () => void;
     customHeader?(params: IParamsCalendarHeader): React.ReactNode;
     monthsList?: (string | number)[];
-    yearList?: (string | number)[];
+    yearsList?: (string | number)[];
 };
 /**
  *
@@ -22,5 +22,5 @@ type Props = {
  * @param {ReactNode} customHeader customize your calendar header
  * @returns JSX Element return the header of calendar
  */
-declare const Index: ({ currentMonth, currentYear, prev, next, customHeader, changeMonth, changeYear, monthsList, yearList }: Props) => JSX.Element;
+declare const Index: ({ currentMonth, currentYear, prev, next, customHeader, changeMonth, changeYear, monthsList, yearsList }: Props) => JSX.Element;
 export default Index;

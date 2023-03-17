@@ -15,13 +15,13 @@ const prop_types_1 = tslib_1.__importDefault(require("prop-types"));
  * @param {string} datapicker.customHeader customize your calendar header
  * @return {JSX Element} return the input and calendar
  */
-const Datapicker = ({ selectedDate, onChange, customHeader, dataFormat, inputId, monthsList, yearList }) => {
+const Datapicker = ({ selectedDate, onChange, customHeader, dataFormat, inputId, monthsList, yearsList }) => {
     const [isOpen, setIsOpen] = (0, react_1.useState)(false);
     let datapickerRef = (0, react_1.useRef)(null);
     return (react_1.default.createElement("div", { className: 'datapicker' },
         react_1.default.createElement("div", { className: 'datapicker-input', onClick: () => setIsOpen(true) },
             react_1.default.createElement(input_1.default, { inputId: inputId, selectedDate: selectedDate, onChange: onChange, dataFormat: dataFormat, datapickerRef: datapickerRef }),
-            isOpen && react_1.default.createElement(Calendar_1.default, { setIsOpen: () => setIsOpen(false), customHeader: customHeader, selectedDate: selectedDate, onChange: onChange, dataFormat: dataFormat, datapickerRef: datapickerRef, monthsList: monthsList, yearList: yearList }))));
+            isOpen && react_1.default.createElement(Calendar_1.default, { setIsOpen: () => setIsOpen(false), customHeader: customHeader, selectedDate: selectedDate, onChange: onChange, dataFormat: dataFormat, datapickerRef: datapickerRef, monthsList: monthsList, yearsList: yearsList }))));
 };
 exports.default = Datapicker;
 Datapicker.prototype = {
@@ -29,4 +29,6 @@ Datapicker.prototype = {
     onChange: prop_types_1.default.func.isRequired,
     customHeader: prop_types_1.default.func,
     dataFormat: prop_types_1.default.string,
+    monthsList: prop_types_1.default.array,
+    yearList: prop_types_1.default.array,
 };

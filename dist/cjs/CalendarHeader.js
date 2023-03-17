@@ -16,7 +16,7 @@ const prop_types_1 = tslib_1.__importDefault(require("prop-types"));
  * @param {ReactNode} customHeader customize your calendar header
  * @returns JSX Element return the header of calendar
  */
-const Index = ({ currentMonth, currentYear, prev, next, customHeader, changeMonth, changeYear, monthsList, yearList }) => {
+const Index = ({ currentMonth, currentYear, prev, next, customHeader, changeMonth, changeYear, monthsList, yearsList }) => {
     const month = [
         'Janvier',
         'Février',
@@ -31,10 +31,10 @@ const Index = ({ currentMonth, currentYear, prev, next, customHeader, changeMont
         'Novembre',
         'Décembre',
     ];
-    return (react_1.default.createElement("div", { className: 'calendar-header' }, monthsList && yearList ? react_1.default.createElement("div", null,
+    return (react_1.default.createElement("div", { className: 'calendar-header' }, monthsList && yearsList ? react_1.default.createElement("div", null,
         react_1.default.createElement("button", { onClick: prev }, "<"),
         react_1.default.createElement("select", { value: monthsList[currentMonth], onChange: ({ target: { value } }) => changeMonth(monthsList.indexOf(value)) }, monthsList.map((option) => (react_1.default.createElement("option", { key: option, value: option }, option)))),
-        react_1.default.createElement("select", { value: currentYear, onChange: ({ target: { value } }) => changeYear(value) }, yearList.map((option) => (react_1.default.createElement("option", { key: option, value: option }, option)))),
+        react_1.default.createElement("select", { value: currentYear, onChange: ({ target: { value } }) => changeYear(value) }, yearsList.map((option) => (react_1.default.createElement("option", { key: option, value: option }, option)))),
         react_1.default.createElement("button", { onClick: next }, ">")) :
         customHeader ? (customHeader({ prev, next, currentMonth, currentYear, changeMonth, changeYear })) : (react_1.default.createElement(react_1.default.Fragment, null,
             react_1.default.createElement("div", null, `${month[currentMonth]} ${currentYear}`),
@@ -51,4 +51,6 @@ Index.prototype = {
     customHeader: prop_types_1.default.func.isRequired,
     changeMonth: prop_types_1.default.func.isRequired,
     changeYear: prop_types_1.default.func.isRequired,
+    monthsList: prop_types_1.default.array,
+    yearList: prop_types_1.default.array,
 };
