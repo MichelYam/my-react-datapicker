@@ -31,7 +31,7 @@ function App() {
   }
   return (
     <div className="App">
-      <Datapicker dataFormat='DD/MM/YYYY' selectedDate={startDate} onChange={(startDate: any) => setStartDate(startDate)}
+      <Datapicker dataFormat='DD/MM/YYYY' selectedDate={startDate} onChange={(startDate: any) => setStartDate(startDate)} monthsList={months} yearsList={years}
       />
       {/* <Datapicker dataFormat='DD/MM/YYYY' selectedDate={start} onChange={(start: any) => handleStatete(start)}
         customHeader={({

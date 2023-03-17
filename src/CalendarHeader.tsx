@@ -14,7 +14,7 @@ type Props = {
   next: () => void
   customHeader?(params: IParamsCalendarHeader): React.ReactNode
   monthsList?: (string | number)[]
-  yearList?: (string | number)[]
+  yearsList?: (string | number)[]
 }
 /**
  * 
@@ -27,7 +27,7 @@ type Props = {
  * @param {ReactNode} customHeader customize your calendar header
  * @returns JSX Element return the header of calendar
  */
-const Index = ({ currentMonth, currentYear, prev, next, customHeader, changeMonth, changeYear, monthsList, yearList }: Props) => {
+const Index = ({ currentMonth, currentYear, prev, next, customHeader, changeMonth, changeYear, monthsList, yearsList }: Props) => {
   const month = [
     'Janvier',
     'Février',
@@ -46,7 +46,7 @@ const Index = ({ currentMonth, currentYear, prev, next, customHeader, changeMont
     <div className='calendar-header'>
       {
 
-        monthsList && yearList ? <div>
+        monthsList && yearsList ? <div>
           <button onClick={prev}>
             {"<"}
           </button>
@@ -66,7 +66,7 @@ const Index = ({ currentMonth, currentYear, prev, next, customHeader, changeMont
             value={currentYear}
             onChange={({ target: { value } }: any) => changeYear(value)}
           >
-            {yearList.map((option) => (
+            {yearsList.map((option) => (
               <option key={option} value={option}>
                 {option}
               </option>
@@ -101,4 +101,6 @@ Index.prototype = {
   customHeader: PropTypes.func.isRequired,
   changeMonth: PropTypes.func.isRequired,
   changeYear: PropTypes.func.isRequired,
+  monthsList: PropTypes.array,
+  yearList: PropTypes.array,
 }

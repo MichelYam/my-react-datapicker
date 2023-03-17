@@ -24,6 +24,8 @@ yarn add my-react-datepicker --save
 - ``customHeader`` (object): custom header of datapicker
 - ``format`` (string): customize date format
 - ``inputId`` (string): customize id
+- ``monthsList`` (array): array of months
+- ``yearsList`` (array): array of years
 
 Here is a simple example, with report data injected directly as an object:
 
@@ -45,7 +47,12 @@ const App = () => {
 
 ## Examples
 
-You can customize dataPicker header like:
+easy to use
+
+``` tsx
+    <Datapicker dataFormat='DD/MM/YYYY' selectedDate={startDate} onChange={(startDate: any) => setStartDate(startDate)} monthsList={months} yearsList={years}
+```
+
 You can customize dataPicker header with you own styles like:
 
 ```tsx
