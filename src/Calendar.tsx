@@ -12,6 +12,8 @@ type Props = {
   onChange: (value: string) => void
   setIsOpen: (value: boolean) => void
   datapickerRef: RefObject<HTMLInputElement>
+  monthsList?: string[]
+  yearList?: string[]
 }
 type DayProps = {
   value: string | number
@@ -35,7 +37,7 @@ export type test = {
  * @param {RefObject<HTMLInputElement>} datapickerRef
  * @returns JSX Element return calendar
  */
-const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, datapickerRef }: Props) => {
+const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, datapickerRef, monthsList, yearList }: Props) => {
   const [currentDateCalendar, setCurrentDateCalendar] = useState<DayProps>([])
   const [currentMonth, setCurrentMonth] = useState<number>(new Date().getMonth())
   const [currentYear, setCurrentYear] = useState<number>(new Date().getFullYear())
@@ -241,6 +243,8 @@ const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, da
           customHeader={customHeader}
           changeYear={setCurrentYear}
           changeMonth={setCurrentMonth}
+          monthsList={monthsList}
+          yearList={yearList}
         />
         <div className='calendar-body'>
           <div className='calendar-day'>

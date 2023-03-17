@@ -13,6 +13,8 @@ type Props = {
   prev: () => void
   next: () => void
   customHeader?(params: IParamsCalendarHeader): React.ReactNode
+  monthsList?: string[]
+  yearList?: string[]
 }
 /**
  * 
@@ -25,7 +27,7 @@ type Props = {
  * @param {ReactNode} customHeader customize your calendar header
  * @returns JSX Element return the header of calendar
  */
-const Index = ({ currentMonth, currentYear, prev, next, customHeader, changeMonth, changeYear }: Props) => {
+const Index = ({ currentMonth, currentYear, prev, next, customHeader, changeMonth, changeYear, monthsList, yearList }: Props) => {
   const month = [
     'Janvier',
     'Février',
@@ -40,20 +42,51 @@ const Index = ({ currentMonth, currentYear, prev, next, customHeader, changeMont
     'Novembre',
     'Décembre',
   ]
-
   return (
     <div className='calendar-header'>
-      {customHeader ? (
-        customHeader({ prev, next, currentMonth, currentYear, changeMonth, changeYear })
-      ) : (
-        <>
-          <div>{`${month[currentMonth as unknown as number]} ${currentYear}`}</div>
-          <div className='calender-direction'>
-            <KeyboardArrowUpIcon onClick={prev} />
-            <KeyboardArrowDownIcon onClick={next} />
-          </div>
-        </>
-      )}
+      {
+
+        monthsList && yearList ? <div>
+          <button onClick={prev}>
+            {"<"}
+          </button>
+          <select
+            value={monthsList[currentMonth as unknown as number]}
+            onChange={({ target: { value } }) =>
+              changeMonth(monthsList.indexOf(value))
+            }
+          >
+            {monthsList.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+          <select
+            value={currentYear}
+            onChange={({ target: { value } }: any) => changeYear(value)}
+          >
+            {yearList.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+          <button onClick={next} >
+            {">"}
+          </button>
+        </div> :
+          customHeader ? (
+            customHeader({ prev, next, currentMonth, currentYear, changeMonth, changeYear })
+          ) : (
+            <>
+              <div>{`${month[currentMonth as unknown as number]} ${currentYear}`}</div>
+              <div className='calender-direction'>
+                <KeyboardArrowUpIcon onClick={prev} />
+                <KeyboardArrowDownIcon onClick={next} />
+              </div>
+            </>
+          )}
     </div>
   )
 }

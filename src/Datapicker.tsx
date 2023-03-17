@@ -5,19 +5,14 @@ import PropTypes from 'prop-types'
 
 // import './stylesheets/datapicker.css'
 
-/**
- * This is the description of the interface
- *
- * @type Props
- * @member {string} label is used for whatever reason
- * @field {string} prop is used for other reason
- */
 type Props = {
   dataFormat: string
   selectedDate: string
   onChange: (value: string) => void
   customHeader?(params: IParamsCalendarHeader): ReactNode
   inputId?: string
+  monthsList?: string[]
+  yearList?: string[]
 }
 export interface IParamsCalendarHeader {
   prev(): void
@@ -38,7 +33,7 @@ export interface IParamsCalendarHeader {
  * @param {string} datapicker.customHeader customize your calendar header
  * @return {JSX Element} return the input and calendar
  */
-const Datapicker: React.FC<Props> = ({ selectedDate, onChange, customHeader, dataFormat, inputId }) => {
+const Datapicker = ({ selectedDate, onChange, customHeader, dataFormat, inputId, monthsList, yearList }: Props) => {
   const [isOpen, setIsOpen] = useState(false)
   let datapickerRef = useRef<HTMLInputElement>(null)
   return (
@@ -58,6 +53,8 @@ const Datapicker: React.FC<Props> = ({ selectedDate, onChange, customHeader, dat
           onChange={onChange}
           dataFormat={dataFormat}
           datapickerRef={datapickerRef}
+          monthsList={monthsList}
+          yearList={yearList}
         />}
       </div>
     </div>
