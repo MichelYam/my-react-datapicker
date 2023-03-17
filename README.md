@@ -50,7 +50,29 @@ const App = () => {
 easy to use
 
 ``` tsx
-    <Datapicker dataFormat='DD/MM/YYYY' selectedDate={startDate} onChange={(startDate: any) => setStartDate(startDate)} monthsList={months} yearsList={years}
+ const [value, setValue] = useState("")
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ]
+    const years = range(1990, getYear(new Date()) + 1, 1);
+  <Datapicker
+    dataFormat='DD/MM/YYYY'
+    selectedDate={startDate}
+    onChange={(value: any) => setValue(value)}
+    monthsList={months}
+    yearsList={years}
+    />
 ```
 
 You can customize dataPicker header with you own styles like:
