@@ -10,12 +10,12 @@ const prop_types_1 = tslib_1.__importDefault(require("prop-types"));
  * @param {ReactNode} customHeader customize the header of calendar
  * @param {void} onChange update the date
  * @param {string} selectedDate date selected
- * @param {string} dataFormat format of the date
+ * @param {string} dateFormat format of the date
  * @param {void} setIsOpen update the calendar view
- * @param {RefObject<HTMLInputElement>} datapickerRef
+ * @param {RefObject<HTMLInputElement>} datepickerRef
  * @returns JSX Element return calendar
  */
-const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, datapickerRef, monthsList, yearsList }) => {
+const Index = ({ customHeader, onChange, selectedDate, dateFormat, setIsOpen, datepickerRef, monthsList, yearsList }) => {
     const [currentDateCalendar, setCurrentDateCalendar] = (0, react_1.useState)([]);
     const [currentMonth, setCurrentMonth] = (0, react_1.useState)(new Date().getMonth());
     const [currentYear, setCurrentYear] = (0, react_1.useState)(new Date().getFullYear());
@@ -49,11 +49,11 @@ const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, da
      */
     const handleWindowMouseDown = (event) => {
         var _a, _b;
-        if (!(calendarRef.current && datapickerRef.current)) {
+        if (!(calendarRef.current && datepickerRef.current)) {
             return;
         }
         const eventIsOutside = !((_a = calendarRef.current) === null || _a === void 0 ? void 0 : _a.contains(event.target)) && calendarRef.current !== event.target;
-        const eventIsOnPopoverAnchor = ((_b = datapickerRef.current) === null || _b === void 0 ? void 0 : _b.contains(event.target)) || datapickerRef.current === event.target;
+        const eventIsOnPopoverAnchor = ((_b = datepickerRef.current) === null || _b === void 0 ? void 0 : _b.contains(event.target)) || datepickerRef.current === event.target;
         if (eventIsOutside && !eventIsOnPopoverAnchor) {
             setIsOpen(false);
         }
@@ -137,7 +137,7 @@ const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, da
         }
         const month = newMonth + 1 < 10 ? '0' + (newMonth + 1) : newMonth + 1;
         const year = newYear;
-        dataFormat === 'MM/DD/YYYY'
+        dateFormat === 'MM/DD/YYYY'
             ? onChange(`${month}/${daySelected.day}/${year}`)
             : onChange(`${daySelected.day}/${month}/${year}`);
         setIsOpen(false);
@@ -206,7 +206,7 @@ const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, da
             setCurrentMonth(currentMonth - 1);
         }
     };
-    return (react_1.default.createElement("div", { className: "datapicker-calendar", ref: calendarRef },
+    return (react_1.default.createElement("div", { className: "datepicker-calendar", ref: calendarRef },
         react_1.default.createElement("div", { className: 'calendar' },
             react_1.default.createElement(CalendarHeader_1.default, { currentMonth: currentMonth, currentYear: currentYear, next: next, prev: prev, customHeader: customHeader, changeYear: setCurrentYear, changeMonth: setCurrentMonth, monthsList: monthsList, yearsList: yearsList }),
             react_1.default.createElement("div", { className: 'calendar-body' },
@@ -219,7 +219,7 @@ Index.prototype = {
     selectedDate: prop_types_1.default.func.isRequired,
     setIsOpen: prop_types_1.default.func.isRequired,
     customHeader: prop_types_1.default.func,
-    dataFormat: prop_types_1.default.string,
+    dateFormat: prop_types_1.default.string,
     monthsList: prop_types_1.default.array,
     yearList: prop_types_1.default.array,
 };

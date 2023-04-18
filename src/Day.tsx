@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// import './stylesheets/datapicker.css'
+// import './stylesheets/datepicker.css'
 
 type Props = {
   value: string | number

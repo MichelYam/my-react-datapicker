@@ -1,17 +1,17 @@
 import React, { ReactNode, RefObject, useEffect, useRef, useState } from 'react'
 import CalendarHeader from './CalendarHeader'
-import { IParamsCalendarHeader } from './Datapicker'
+import { IParamsCalendarHeader } from './Datepicker'
 import Week from './Week'
 import PropTypes from 'prop-types'
-// import './stylesheets/datapicker.css'
+// import './stylesheets/datepicker.css'
 
 type Props = {
-  dataFormat: string
+  dateFormat: string
   customHeader?(params: IParamsCalendarHeader): ReactNode
   selectedDate: string
   onChange: (value: string) => void
   setIsOpen: (value: boolean) => void
-  datapickerRef: RefObject<HTMLInputElement>
+  datepickerRef: RefObject<HTMLInputElement>
   monthsList?: (string | number)[]
   yearsList?: (string | number)[]
 }
@@ -32,12 +32,12 @@ export type test = {
  * @param {ReactNode} customHeader customize the header of calendar
  * @param {void} onChange update the date
  * @param {string} selectedDate date selected
- * @param {string} dataFormat format of the date
+ * @param {string} dateFormat format of the date
  * @param {void} setIsOpen update the calendar view
- * @param {RefObject<HTMLInputElement>} datapickerRef
+ * @param {RefObject<HTMLInputElement>} datepickerRef
  * @returns JSX Element return calendar
  */
-const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, datapickerRef, monthsList, yearsList }: Props) => {
+const Index = ({ customHeader, onChange, selectedDate, dateFormat, setIsOpen, datepickerRef, monthsList, yearsList }: Props) => {
   const [currentDateCalendar, setCurrentDateCalendar] = useState<DayProps>([])
   const [currentMonth, setCurrentMonth] = useState<number>(new Date().getMonth())
   const [currentYear, setCurrentYear] = useState<number>(new Date().getFullYear())
@@ -75,11 +75,11 @@ const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, da
    * 
    */
   const handleWindowMouseDown = (event: MouseEvent): void => {
-    if (!(calendarRef.current && datapickerRef.current)) {
+    if (!(calendarRef.current && datepickerRef.current)) {
       return;
     }
     const eventIsOutside = !calendarRef.current?.contains(event.target as Node) && calendarRef.current !== event.target;
-    const eventIsOnPopoverAnchor = datapickerRef.current?.contains(event.target as Node) || datapickerRef.current === event.target;
+    const eventIsOnPopoverAnchor = datepickerRef.current?.contains(event.target as Node) || datepickerRef.current === event.target;
 
     if (eventIsOutside && !eventIsOnPopoverAnchor) {
       setIsOpen(false);
@@ -165,7 +165,7 @@ const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, da
     const month = newMonth + 1 < 10 ? '0' + (newMonth + 1) : newMonth + 1
     const year = newYear
 
-    dataFormat === 'MM/DD/YYYY'
+    dateFormat === 'MM/DD/YYYY'
       ? onChange(`${month}/${daySelected.day}/${year}`)
       : onChange(`${daySelected.day}/${month}/${year}`)
     setIsOpen(false)
@@ -233,7 +233,7 @@ const Index = ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, da
     }
   }
   return (
-    <div className="datapicker-calendar" ref={calendarRef}>
+    <div className="datepicker-calendar" ref={calendarRef}>
       <div className='calendar'>
         <CalendarHeader
           currentMonth={currentMonth}
@@ -272,7 +272,7 @@ Index.prototype = {
   selectedDate: PropTypes.func.isRequired,
   setIsOpen: PropTypes.func.isRequired,
   customHeader: PropTypes.func,
-  dataFormat: PropTypes.string,
+  dateFormat: PropTypes.string,
   monthsList: PropTypes.array,
   yearList: PropTypes.array,
 }

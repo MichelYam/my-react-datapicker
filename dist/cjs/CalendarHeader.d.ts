@@ -1,5 +1,5 @@
 import React from 'react';
-import { IParamsCalendarHeader } from './Datapicker';
+import { IParamsCalendarHeader } from './Datepicker';
 type Props = {
     currentMonth: number | string;
     currentYear: number | string;

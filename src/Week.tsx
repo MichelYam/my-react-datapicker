@@ -2,7 +2,7 @@ import React from 'react'
 import Day from './Day'
 import PropTypes from 'prop-types'
 
-// import './stylesheets/datapicker.css'
+// import './stylesheets/datepicker.css'
 
 type dayProp = {
   value: string | number

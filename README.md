@@ -1,4 +1,4 @@
-# simple dataPicker library of React components created using `create-react-app`
+# simple datePicker library of React components created using `create-react-app`
 
 ## Installation
 
@@ -21,7 +21,7 @@ yarn add my-react-datepicker --save
 
 ### optional
 
-- ``customHeader`` (object): custom header of datapicker
+- ``customHeader`` (object): custom header of datepicker
 - ``format`` (string): customize date format
 - ``inputId`` (string): customize id
 - ``monthsList`` (array): array of months
@@ -35,7 +35,7 @@ import DatePicker from "my-react-datepicker";
 const App = () => {
   const [value, setValue] = useState("")
   return (
-      <Datapicker
+      <Datepicker
         selectedDate={startDate} 
         onChange={setStartDate} //when day is clicked
       />
@@ -66,8 +66,8 @@ easy to use
     "December",
   ]
     const years = range(1990, getYear(new Date()) + 1, 1);
-  <Datapicker
-    dataFormat='DD/MM/YYYY'
+  <Datepicker
+    dateFormat='DD/MM/YYYY'
     selectedDate={startDate}
     onChange={(value: any) => setValue(value)}
     monthsList={months}
@@ -75,7 +75,7 @@ easy to use
     />
 ```
 
-You can customize dataPicker header with you own styles like:
+You can customize datePicker header with you own styles like:
 
 ```tsx
  const [value, setValue] = useState("")
@@ -95,7 +95,7 @@ You can customize dataPicker header with you own styles like:
   ]
     const years = range(1990, getYear(new Date()) + 1, 1);
   return (
-       <Datapicker selectedDate={startDate} onChange={setStartDate}
+       <Datepicker selectedDate={startDate} onChange={setStartDate}
         customHeader={({
           currentMonth,
           currentYear,

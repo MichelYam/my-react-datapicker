@@ -1,12 +1,12 @@
 import { ReactNode, RefObject } from 'react';
-import { IParamsCalendarHeader } from './Datapicker';
+import { IParamsCalendarHeader } from './Datepicker';
 type Props = {
-    dataFormat: string;
+    dateFormat: string;
     customHeader?(params: IParamsCalendarHeader): ReactNode;
     selectedDate: string;
     onChange: (value: string) => void;
     setIsOpen: (value: boolean) => void;
-    datapickerRef: RefObject<HTMLInputElement>;
+    datepickerRef: RefObject<HTMLInputElement>;
     monthsList?: (string | number)[];
     yearsList?: (string | number)[];
 };
@@ -21,10 +21,10 @@ export type test = {
  * @param {ReactNode} customHeader customize the header of calendar
  * @param {void} onChange update the date
  * @param {string} selectedDate date selected
- * @param {string} dataFormat format of the date
+ * @param {string} dateFormat format of the date
  * @param {void} setIsOpen update the calendar view
- * @param {RefObject<HTMLInputElement>} datapickerRef
+ * @param {RefObject<HTMLInputElement>} datepickerRef
  * @returns JSX Element return calendar
  */
-declare const Index: ({ customHeader, onChange, selectedDate, dataFormat, setIsOpen, datapickerRef, monthsList, yearsList }: Props) => JSX.Element;
+declare const Index: ({ customHeader, onChange, selectedDate, dateFormat, setIsOpen, datepickerRef, monthsList, yearsList }: Props) => JSX.Element;
 export default Index;

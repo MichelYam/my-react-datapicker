@@ -1,3 +1,3 @@
-import Datapicker from './Datapicker'
+import Datepicker from './Datepicker'
 
-export { Datapicker }
+export { Datepicker }
